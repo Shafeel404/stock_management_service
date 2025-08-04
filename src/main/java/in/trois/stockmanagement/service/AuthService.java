@@ -1,14 +1,15 @@
 package in.trois.stockmanagement.service;
 
-import in.trois.stock.auth.lib.service.annotation.ReadTransactional;
-import in.trois.stock.auth.lib.service.exception.RestException;
-import in.trois.stock.auth.lib.service.utils.JwtUtil;
-import in.trois.stock.auth.lib.service.utils.ValidationUtils;
+
+import in.trois.stockmanagement.annotation.ReadTransactional;
 import in.trois.stockmanagement.entity.User;
 import in.trois.stockmanagement.entity.master.Role;
+import in.trois.stockmanagement.exception.RestException;
 import in.trois.stockmanagement.repository.UserRepository;
 import in.trois.stockmanagement.response.AuthResponseDto;
 
+import in.trois.stockmanagement.utils.JwtUtil;
+import in.trois.stockmanagement.utils.ValidationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

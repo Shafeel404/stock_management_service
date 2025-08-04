@@ -1,12 +1,12 @@
 package in.trois.stockmanagement.service;
 
-import in.trois.stock.auth.lib.service.annotation.ReadTransactional;
-import in.trois.stock.auth.lib.service.annotation.WriteTransactional;
-import in.trois.stock.auth.lib.service.constants.Status;
-import in.trois.stock.auth.lib.service.exception.RestException;
-import in.trois.stock.auth.lib.service.service.AbstractJpaService;
+
+import in.trois.stockmanagement.annotation.ReadTransactional;
+import in.trois.stockmanagement.annotation.WriteTransactional;
+import in.trois.stockmanagement.constants.Status;
 import in.trois.stockmanagement.entity.Inventory;
 import in.trois.stockmanagement.entity.mapping.InventoryCommercialsMapping;
+import in.trois.stockmanagement.exception.RestException;
 import in.trois.stockmanagement.repository.InventoryRepository;
 import in.trois.stockmanagement.repository.mapping.InventoryCommercialMappingRepository;
 import in.trois.stockmanagement.request.InventoryDto;

@@ -1,6 +1,5 @@
 package in.trois.stockmanagement.repository;
 
-import in.trois.stock.auth.lib.service.repository.AbstractRepository;
 import in.trois.stockmanagement.entity.Inventory;
 
 import org.springframework.data.jpa.repository.Query;

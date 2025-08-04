@@ -1,14 +1,15 @@
 package in.trois.stockmanagement.controller.inventory;
 
-import in.trois.stock.auth.lib.service.ResponseBuilder;
-import in.trois.stock.auth.lib.service.controller.AbstractController;
-import in.trois.stock.auth.lib.service.request.Request;
-import in.trois.stock.auth.lib.service.response.AbstractResponse;
+
+import in.trois.stockmanagement.controller.AbstractController;
 import in.trois.stockmanagement.predicate.mapping.InventoryPredicates;
 import in.trois.stockmanagement.request.InventoryDto;
+import in.trois.stockmanagement.request.Request;
+import in.trois.stockmanagement.response.AbstractResponse;
 import in.trois.stockmanagement.searchbean.mapping.InventorySearchBean;
 import in.trois.stockmanagement.service.InventoryService;
 
+import in.trois.stockmanagement.utils.ResponseBuilder;
 import jakarta.validation.Valid;
 
 import lombok.RequiredArgsConstructor;

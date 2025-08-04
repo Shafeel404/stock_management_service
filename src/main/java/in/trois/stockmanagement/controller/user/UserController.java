@@ -1,15 +1,15 @@
 package in.trois.stockmanagement.controller.user;
 
-import in.trois.stock.auth.lib.service.ResponseBuilder;
-import in.trois.stock.auth.lib.service.controller.AbstractController;
-import in.trois.stock.auth.lib.service.request.Request;
-import in.trois.stock.auth.lib.service.response.AbstractResponse;
-import in.trois.stock.auth.lib.service.response.Response;
+import in.trois.stockmanagement.controller.AbstractController;
 import in.trois.stockmanagement.predicate.UserPredicates;
 import in.trois.stockmanagement.request.AuthRequestDto;
+import in.trois.stockmanagement.request.Request;
+import in.trois.stockmanagement.response.AbstractResponse;
+import in.trois.stockmanagement.response.Response;
 import in.trois.stockmanagement.searchbean.UserSearchBean;
 import in.trois.stockmanagement.service.UserService;
 
+import in.trois.stockmanagement.utils.ResponseBuilder;
 import jakarta.validation.Valid;
 
 import lombok.RequiredArgsConstructor;

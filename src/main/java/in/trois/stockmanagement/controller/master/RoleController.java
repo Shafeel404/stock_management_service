@@ -1,14 +1,14 @@
 package in.trois.stockmanagement.controller.master;
 
-import in.trois.stock.auth.lib.service.ResponseBuilder;
-import in.trois.stock.auth.lib.service.controller.AbstractController;
-import in.trois.stock.auth.lib.service.request.Request;
-import in.trois.stock.auth.lib.service.response.AbstractResponse;
+import in.trois.stockmanagement.controller.AbstractController;
 import in.trois.stockmanagement.predicate.master.RolePredicates;
+import in.trois.stockmanagement.request.Request;
 import in.trois.stockmanagement.request.master.RoleDto;
+import in.trois.stockmanagement.response.AbstractResponse;
 import in.trois.stockmanagement.searchbean.master.RoleSearchBean;
 import in.trois.stockmanagement.service.master.RoleService;
 
+import in.trois.stockmanagement.utils.ResponseBuilder;
 import jakarta.validation.Valid;
 
 import lombok.RequiredArgsConstructor;

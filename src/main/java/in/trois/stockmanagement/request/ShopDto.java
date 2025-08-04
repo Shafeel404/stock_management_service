@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.springframework.http.HttpMethod;
 
-import in.trois.stock.auth.lib.service.dto.AbstractDto;
 import in.trois.stockmanagement.entity.Shop;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

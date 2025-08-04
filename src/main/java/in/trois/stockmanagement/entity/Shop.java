@@ -1,5 +1,6 @@
 package in.trois.stockmanagement.entity;
 
+import in.trois.stockmanagement.request.AbstractDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,8 +9,6 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-import in.trois.stock.auth.lib.service.dto.AbstractDto;
-import in.trois.stock.auth.lib.service.entity.AbstractEntity;
 import in.trois.stockmanagement.request.ShopDto;
 
 @Entity

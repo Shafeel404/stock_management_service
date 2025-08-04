@@ -1,11 +1,11 @@
 package in.trois.stockmanagement.predicate.master;
 
-import in.trois.stock.auth.lib.service.constants.Status;
-import in.trois.stock.auth.lib.service.utils.ValidationUtils;
+import in.trois.stockmanagement.constants.Status;
 import in.trois.stockmanagement.entity.master.Role;
 import in.trois.stockmanagement.entity.master.Role_;
 import in.trois.stockmanagement.searchbean.master.RoleSearchBean;
 
+import in.trois.stockmanagement.utils.ValidationUtils;
 import jakarta.persistence.criteria.Predicate;
 
 import org.springframework.data.jpa.domain.Specification;
