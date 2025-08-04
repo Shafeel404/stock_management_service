@@ -1,0 +1,43 @@
+package in.trois.stockmanagement.request;
+
+import in.trois.stock.auth.lib.service.dto.AbstractDto;
+import in.trois.stock.auth.lib.service.entity.AbstractEntity;
+import in.trois.stockmanagement.request.master.RoleDto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import org.springframework.http.HttpMethod;
+
+import java.util.UUID;
+
+@Getter
+@Setter
+public class UserDto extends AbstractDto {
+
+    private UUID id;
+
+    private String username;
+
+    private String password;
+
+    private RoleDto role;
+
+    private String email;
+
+    private String phoneNumber;
+
+    private String fullName;
+
+    private CounterDto counter;
+
+    @Override
+    public <T extends AbstractEntity> T toEntity() {
+        return null;
+    }
+
+    @Override
+    public boolean isValid(HttpMethod httpMethod) {
+        return false;
+    }
+}

@@ -1,0 +1,53 @@
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health
+  health:
+    probes:
+      enabled: true
+    enabled: true
+
+server:
+  servlet:
+    context-path: /stock-management
+  port: 8080
+
+
+#spring:
+#  datasource:
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/STOCK_MANAGEMENT
+#    username: postgres
+#    password: postgres
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://switchback.proxy.rlwy.net:51657/railway
+    username: postgres
+    password: HVcRbiOKSZJHxHTveZpogjtksNHwRUpU
+
+  security:
+    jwt:
+      secret: IwXWuCZRv/a7SXuV/GIZvO/zELE00N5jYoXXoF3Y4ZPl+A62V4nwthL13vCzQiJ17DzWYkroiAonYbRX9fHHwA==
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:/db/changelog/changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+
