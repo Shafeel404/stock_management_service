@@ -1,11 +1,12 @@
 package in.trois.stockmanagement.entity.master;
 
-import in.trois.stock.auth.lib.service.dto.AbstractDto;
-import in.trois.stock.auth.lib.service.entity.AbstractEntity;
-import in.trois.stock.auth.lib.service.payload.DropdownPayload;
-import in.trois.stock.auth.lib.service.utils.ValidationUtils;
+
+import in.trois.stockmanagement.entity.AbstractEntity;
+import in.trois.stockmanagement.payload.DropdownPayload;
+import in.trois.stockmanagement.request.AbstractDto;
 import in.trois.stockmanagement.request.master.CategoryDto;
 
+import in.trois.stockmanagement.utils.ValidationUtils;
 import jakarta.persistence.*;
 
 import lombok.Getter;

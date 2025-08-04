@@ -1,6 +1,6 @@
 package in.trois.stockmanagement.service;
 
-import in.trois.stock.auth.lib.service.annotation.ReadTransactional;
+import in.trois.stockmanagement.annotation.ReadTransactional;
 import in.trois.stockmanagement.repository.InventoryRepository;
 import in.trois.stockmanagement.response.InventoryDashboardResponse;
 import in.trois.stockmanagement.response.InventoryStockSaleDashboardResponse;

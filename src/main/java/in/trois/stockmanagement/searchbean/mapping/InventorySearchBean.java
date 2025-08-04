@@ -1,7 +1,7 @@
 package in.trois.stockmanagement.searchbean.mapping;
 
-import in.trois.stock.auth.lib.service.searchbean.AbstractSearchBean;
 
+import in.trois.stockmanagement.searchbean.AbstractSearchBean;
 import lombok.Getter;
 import lombok.Setter;
 

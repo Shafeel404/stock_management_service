@@ -1,7 +1,6 @@
 package in.trois.stockmanagement.request;
 
-import in.trois.stock.auth.lib.service.dto.AbstractDto;
-import in.trois.stock.auth.lib.service.entity.AbstractEntity;
+import in.trois.stockmanagement.entity.AbstractEntity;
 import in.trois.stockmanagement.request.master.RoleDto;
 
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package in.trois.stockmanagement.config;
 
-import in.trois.stock.auth.lib.service.config.auth.JwtAuthFilter;
 
+import in.trois.stockmanagement.config.auth.JwtAuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

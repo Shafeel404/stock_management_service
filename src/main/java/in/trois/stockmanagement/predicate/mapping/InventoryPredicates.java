@@ -1,11 +1,11 @@
 package in.trois.stockmanagement.predicate.mapping;
 
-import in.trois.stock.auth.lib.service.constants.Status;
-import in.trois.stock.auth.lib.service.utils.ValidationUtils;
+import in.trois.stockmanagement.constants.Status;
 import in.trois.stockmanagement.entity.Inventory;
 import in.trois.stockmanagement.entity.Inventory_;
 import in.trois.stockmanagement.searchbean.mapping.InventorySearchBean;
 
+import in.trois.stockmanagement.utils.ValidationUtils;
 import jakarta.persistence.criteria.Predicate;
 
 import org.springframework.data.jpa.domain.Specification;

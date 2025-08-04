@@ -2,7 +2,6 @@ package in.trois.stockmanagement.request;
 
 import static org.springframework.http.HttpMethod.PATCH;
 
-import in.trois.stock.auth.lib.service.dto.AbstractDto;
 import in.trois.stockmanagement.entity.Inventory;
 import in.trois.stockmanagement.request.mapping.InventoryCommercialsMappingDto;
 import in.trois.stockmanagement.request.master.CategoryDto;

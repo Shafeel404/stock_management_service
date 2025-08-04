@@ -1,6 +1,5 @@
 package in.trois.stockmanagement.service;
 
-import in.trois.stock.auth.lib.service.service.AbstractJpaService;
 import in.trois.stockmanagement.entity.Counter;
 import in.trois.stockmanagement.repository.CounterRepository;
 import in.trois.stockmanagement.request.CounterDto;

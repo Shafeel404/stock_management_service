@@ -1,16 +1,13 @@
 package in.trois.stockmanagement.request;
 
-import static org.springframework.http.HttpMethod.PATCH;
-
-import in.trois.stock.auth.lib.service.dto.AbstractDto;
-import in.trois.stock.auth.lib.service.utils.ValidationUtils;
 import in.trois.stockmanagement.entity.Counter;
-
+import in.trois.stockmanagement.utils.ValidationUtils;
 import lombok.Data;
-
 import org.springframework.http.HttpMethod;
 
 import java.util.UUID;
+
+import static org.springframework.http.HttpMethod.PATCH;
 
 @Data
 public class CounterDto extends AbstractDto {

@@ -1,9 +1,9 @@
 package in.trois.stockmanagement.controller.dashboard;
 
-import in.trois.stock.auth.lib.service.ResponseBuilder;
-import in.trois.stock.auth.lib.service.response.AbstractResponse;
+import in.trois.stockmanagement.response.AbstractResponse;
 import in.trois.stockmanagement.service.DashboardService;
 
+import in.trois.stockmanagement.utils.ResponseBuilder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

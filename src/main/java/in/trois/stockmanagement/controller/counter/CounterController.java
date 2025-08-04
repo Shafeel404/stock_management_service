@@ -1,14 +1,14 @@
 package in.trois.stockmanagement.controller.counter;
 
-import in.trois.stock.auth.lib.service.ResponseBuilder;
-import in.trois.stock.auth.lib.service.controller.AbstractController;
-import in.trois.stock.auth.lib.service.request.Request;
-import in.trois.stock.auth.lib.service.response.AbstractResponse;
+import in.trois.stockmanagement.controller.AbstractController;
 import in.trois.stockmanagement.predicate.CounterPredicates;
 import in.trois.stockmanagement.request.CounterDto;
+import in.trois.stockmanagement.request.Request;
+import in.trois.stockmanagement.response.AbstractResponse;
 import in.trois.stockmanagement.searchbean.CounterSearchBean;
 import in.trois.stockmanagement.service.CounterService;
 
+import in.trois.stockmanagement.utils.ResponseBuilder;
 import jakarta.validation.Valid;
 
 import lombok.RequiredArgsConstructor;

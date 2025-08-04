@@ -1,7 +1,7 @@
 package in.trois.stockmanagement.repository.master;
 
-import in.trois.stock.auth.lib.service.repository.AbstractRepository;
 import in.trois.stockmanagement.entity.master.Role;
+import in.trois.stockmanagement.repository.AbstractRepository;
 
 import java.util.UUID;
 

@@ -1,11 +1,10 @@
 package in.trois.stockmanagement.exception;
 
-import in.trois.stock.auth.lib.service.constants.logging.LogState;
-import in.trois.stock.auth.lib.service.constants.response.ResultCode;
-import in.trois.stock.auth.lib.service.exception.RestException;
-import in.trois.stock.auth.lib.service.logging.LogStringBuilder;
-import in.trois.stock.auth.lib.service.response.ErrorResponse;
 
+import in.trois.stockmanagement.constants.logging.LogState;
+import in.trois.stockmanagement.constants.response.ResultCode;
+import in.trois.stockmanagement.logging.LogStringBuilder;
+import in.trois.stockmanagement.response.ErrorResponse;
 import io.swagger.v3.oas.annotations.Hidden;
 
 import jakarta.validation.ConstraintViolation;
@@ -63,7 +62,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         for (ObjectError error : ex.getBindingResult().getGlobalErrors()) {
             errors.add(error.getObjectName() + ": " + error.getDefaultMessage());
         }
-        in.trois.stock.auth.lib.service.response.ErrorResponse errorResponse =
+        ErrorResponse errorResponse =
                 new ErrorResponse(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), errors);
         return handleExceptionInternal(
                 ex, errorResponse, headers, errorResponse.getStatus(), request);

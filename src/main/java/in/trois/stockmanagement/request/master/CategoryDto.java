@@ -1,11 +1,10 @@
 package in.trois.stockmanagement.request.master;
 
 import static org.springframework.http.HttpMethod.PATCH;
-
-import in.trois.stock.auth.lib.service.dto.AbstractDto;
-import in.trois.stock.auth.lib.service.utils.ValidationUtils;
 import in.trois.stockmanagement.entity.master.Category;
 
+import in.trois.stockmanagement.request.AbstractDto;
+import in.trois.stockmanagement.utils.ValidationUtils;
 import lombok.Data;
 
 import org.springframework.http.HttpMethod;
