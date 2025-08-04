@@ -28,18 +28,19 @@ public class UserService extends AbstractJpaService<UserDto, UUID, UserRepositor
         User user = new User();
         user.setUsername(requestDto.getUsername());
         user.setPassword(encodedPassword);
-        user.setRoleId(
-                ValidationUtils.isValid(requestDto.getRoleId())
-                        ? requestDto.getRoleId().getId()
-                        : null);
+//        user.setRoleId(
+//                ValidationUtils.isValid(requestDto.getRoleId())
+//                        ? requestDto.getRoleId().getId()
+//                        : null);
         user.setEmail(requestDto.getEmail());
         user.setFullName(requestDto.getFullName());
         user.setPhoneNumber(requestDto.getPhoneNumber());
         user.setId(UUID.randomUUID());
-        user.setCounterId(
-                ValidationUtils.isValid(requestDto.getCounter())
-                        ? requestDto.getCounter().getId()
-                        : null);
+        user.setStatus(1);
+//        user.setCounterId(
+//                ValidationUtils.isValid(requestDto.getCounter())
+//                        ? requestDto.getCounter().getId()
+//                        : null);
         userRepository.save(user);
     }
 
@@ -53,9 +54,9 @@ public class UserService extends AbstractJpaService<UserDto, UUID, UserRepositor
             String encodedPassword = passwordEncoder.encode(requestDto.getPassword());
             user.setPassword(encodedPassword);
         }
-        if (ValidationUtils.isValid(requestDto.getRoleId())) {
-            user.setRoleId(requestDto.getRoleId().getId());
-        }
+//        if (ValidationUtils.isValid(requestDto.getRoleId())) {
+//            user.setRoleId(requestDto.getRoleId().getId());
+//        }
         if (ValidationUtils.isValid(requestDto.getUsername())) {
             user.setUsername(requestDto.getUsername());
         }
@@ -68,9 +69,9 @@ public class UserService extends AbstractJpaService<UserDto, UUID, UserRepositor
         if (ValidationUtils.isValid(requestDto.getPhoneNumber())) {
             user.setPhoneNumber(requestDto.getPhoneNumber());
         }
-        if (ValidationUtils.isValid(requestDto.getCounter())) {
-            user.setCounterId(requestDto.getCounter().getId());
-        }
+//        if (ValidationUtils.isValid(requestDto.getCounter())) {
+//            user.setCounterId(requestDto.getCounter().getId());
+//        }
         userRepository.save(user);
     }
 }

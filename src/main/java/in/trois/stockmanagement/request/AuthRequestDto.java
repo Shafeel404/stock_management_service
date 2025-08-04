@@ -11,9 +11,9 @@ public class AuthRequestDto {
     private UUID id;
     private String username;
     private String password;
-    private RoleDto roleId;
+//    private RoleDto roleId;
     private String email;
     private String phoneNumber;
     private String fullName;
-    private CounterDto counter;
+//    private CounterDto counter;
 }
