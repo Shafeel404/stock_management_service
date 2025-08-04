@@ -1,7 +1,9 @@
 package in.trois.stockmanagement.controller.customer;
 
 import in.trois.stockmanagement.request.CustomerAddressDto;
+import in.trois.stockmanagement.request.CustomerDto;
 import in.trois.stockmanagement.service.CustomerAddressService;
+import in.trois.stockmanagement.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,21 +15,26 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/customer")
+@RequestMapping(value = "/no-auth/customer")
 @Tag(name = "Customer", description = "Customer management APIs")
-@SecurityRequirement(name = "bearerAuth")
 public class CustomerController {
 
     private final CustomerAddressService customerAddressService;
+    private final CustomerService customerService;
+
+    @PostMapping("/signup")
+    public CustomerDto signup(@RequestBody CustomerDto dto) {
+        return customerService.saveCustomer(dto);
+    }
 
     @PostMapping("/address")
-    @Operation(summary = "Save customer address", description = "Save a new customer address")
+    @SecurityRequirement(name = "bearerAuth")
     public CustomerAddressDto saveAddress(@RequestBody CustomerAddressDto dto) {
         return customerAddressService.saveAddress(dto);
     }
 
     @GetMapping("/address/{customerId}")
-    @Operation(summary = "Get customer addresses", description = "Get all addresses for a customer")
+    @SecurityRequirement(name = "bearerAuth")
     public List<CustomerAddressDto> getAddressesByCustomerId(@PathVariable UUID customerId) {
         return customerAddressService.getAddressesByCustomerId(customerId);
     }
