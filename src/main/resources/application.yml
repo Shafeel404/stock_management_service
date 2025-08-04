@@ -25,14 +25,21 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://switchback.proxy.rlwy.net:51657/railway
-    username: postgres
-    password: HVcRbiOKSZJHxHTveZpogjtksNHwRUpU
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+#spring:
+#  datasource:
+#    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://switchback.proxy.rlwy.net:51657/railway
+#    username: postgres
+#    password: HVcRbiOKSZJHxHTveZpogjtksNHwRUpU
 
   security:
     jwt:
-      secret: IwXWuCZRv/a7SXuV/GIZvO/zELE00N5jYoXXoF3Y4ZPl+A62V4nwthL13vCzQiJ17DzWYkroiAonYbRX9fHHwA==
-
+#      secret: IwXWuCZRv/a7SXuV/GIZvO/zELE00N5jYoXXoF3Y4ZPl+A62V4nwthL13vCzQiJ17DzWYkroiAonYbRX9fHHwA==
+      secret: ${JWT_SECRET_KEY}
     hikari:
       maximum-pool-size: 10
       minimum-idle: 5
