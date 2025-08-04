@@ -3,6 +3,7 @@ package in.trois.stockmanagement.service;
 import in.trois.stockmanagement.entity.Customer;
 import in.trois.stockmanagement.repository.CustomerRepository;
 import in.trois.stockmanagement.request.CustomerDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,12 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class CustomerService {
-    @Autowired
-    private CustomerRepository repository;
+
+    private final CustomerRepository repository;
     
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public CustomerDto saveCustomer(CustomerDto dto) {
         // Check if email already exists

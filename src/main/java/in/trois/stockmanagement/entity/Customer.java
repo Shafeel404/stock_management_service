@@ -1,5 +1,6 @@
 package in.trois.stockmanagement.entity;
 
+import in.trois.stockmanagement.request.CustomerDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,4 +40,16 @@ public class Customer {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public CustomerDto toDto() {
+        CustomerDto dto = new CustomerDto();
+        dto.setId(id);
+        dto.setName(name);
+        dto.setEmail(email);
+        dto.setPhoneNumber(phoneNumber);
+        dto.setIsActive(isActive);
+        dto.setCreatedAt(createdAt);
+        dto.setUpdatedAt(updatedAt);
+        return dto;
+    }
 } 
