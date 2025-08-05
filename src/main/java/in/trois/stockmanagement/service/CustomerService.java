@@ -4,7 +4,6 @@ import in.trois.stockmanagement.entity.Customer;
 import in.trois.stockmanagement.repository.CustomerRepository;
 import in.trois.stockmanagement.request.CustomerDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,6 @@ import java.util.stream.Collectors;
 public class CustomerService {
 
     private final CustomerRepository repository;
-    
     private final PasswordEncoder passwordEncoder;
 
     public CustomerDto saveCustomer(CustomerDto dto) {
@@ -27,12 +25,18 @@ public class CustomerService {
         if (repository.existsByEmail(dto.getEmail())) {
             throw new RuntimeException("Email already registered");
         }
+        
+        // Check if username already exists
+        if (repository.existsByUsername(dto.getUsername())) {
+            throw new RuntimeException("Username already taken");
+        }
 
         Customer customer = new Customer();
         customer.setId(UUID.randomUUID());
-        customer.setName(dto.getName());
+        customer.setUsername(dto.getUsername());
         customer.setEmail(dto.getEmail());
         customer.setPhoneNumber(dto.getPhoneNumber());
+        customer.setFullName(dto.getFullName());
         customer.setPassword(passwordEncoder.encode(dto.getPassword()));
         customer.setIsActive(true);
         customer.setCreatedAt(LocalDateTime.now());
@@ -46,6 +50,10 @@ public class CustomerService {
         return repository.findByEmail(email).map(Customer::toDto);
     }
 
+    public Optional<CustomerDto> findByUsername(String username) {
+        return repository.findByUsername(username).map(Customer::toDto);
+    }
+
     public List<CustomerDto> getAllCustomers() {
         return repository.findAll().stream()
                 .map(Customer::toDto)
@@ -56,7 +64,8 @@ public class CustomerService {
         Customer customer = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
         
-        customer.setName(dto.getName());
+        customer.setUsername(dto.getUsername());
+        customer.setFullName(dto.getFullName());
         customer.setPhoneNumber(dto.getPhoneNumber());
         if (dto.getPassword() != null && !dto.getPassword().isEmpty()) {
             customer.setPassword(passwordEncoder.encode(dto.getPassword()));
@@ -66,6 +75,4 @@ public class CustomerService {
         Customer updatedCustomer = repository.save(customer);
         return updatedCustomer.toDto();
     }
-
-    
 } 

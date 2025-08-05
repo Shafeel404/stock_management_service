@@ -4,7 +4,6 @@ import in.trois.stockmanagement.request.CustomerAddressDto;
 import in.trois.stockmanagement.request.CustomerDto;
 import in.trois.stockmanagement.service.CustomerAddressService;
 import in.trois.stockmanagement.service.CustomerService;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

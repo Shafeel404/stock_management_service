@@ -15,12 +15,6 @@ import lombok.ToString;
 
 import java.io.Serializable;
 
-/**
- *
- * @author vikas
- *
- * @param <T>
- */
 @NoArgsConstructor
 @ToString
 public @Data class Request<T> implements Serializable {

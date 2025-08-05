@@ -14,9 +14,10 @@ import java.util.UUID;
 @NoArgsConstructor
 public class CustomerDto {
     private UUID id;
-    private String name;
+    private String username;
     private String email;
     private String phoneNumber;
+    private String fullName;
     private String password;
     private Boolean isActive;
     private LocalDateTime createdAt;

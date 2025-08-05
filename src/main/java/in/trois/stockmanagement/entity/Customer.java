@@ -20,8 +20,11 @@ public class Customer {
     @Id
     private UUID id;
 
+    @Column(nullable = false, unique = true)
+    private String username;
+
     @Column(nullable = false)
-    private String name;
+    private String password;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -29,8 +32,8 @@ public class Customer {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(nullable = false)
-    private String password;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
     @Column(name = "is_active")
     private Boolean isActive;
@@ -44,9 +47,10 @@ public class Customer {
     public CustomerDto toDto() {
         CustomerDto dto = new CustomerDto();
         dto.setId(id);
-        dto.setName(name);
+        dto.setUsername(username);
         dto.setEmail(email);
         dto.setPhoneNumber(phoneNumber);
+        dto.setFullName(fullName);
         dto.setIsActive(isActive);
         dto.setCreatedAt(createdAt);
         dto.setUpdatedAt(updatedAt);
