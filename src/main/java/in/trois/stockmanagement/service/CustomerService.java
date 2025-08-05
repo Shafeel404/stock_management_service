@@ -25,10 +25,14 @@ public class CustomerService {
         if (repository.existsByEmail(dto.getEmail())) {
             throw new RuntimeException("Email already registered");
         }
-        
+
         // Check if username already exists
         if (repository.existsByUsername(dto.getUsername())) {
             throw new RuntimeException("Username already taken");
+        }
+
+        if (dto.getPassword() == null || dto.getPassword().isEmpty()) {
+            throw new RuntimeException("No password");
         }
 
         Customer customer = new Customer();
@@ -41,7 +45,7 @@ public class CustomerService {
         customer.setIsActive(true);
         customer.setCreatedAt(LocalDateTime.now());
         customer.setUpdatedAt(LocalDateTime.now());
-        
+
         Customer savedCustomer = repository.save(customer);
         return savedCustomer.toDto();
     }
@@ -63,7 +67,7 @@ public class CustomerService {
     public CustomerDto updateCustomer(UUID id, CustomerDto dto) {
         Customer customer = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
-        
+
         customer.setUsername(dto.getUsername());
         customer.setFullName(dto.getFullName());
         customer.setPhoneNumber(dto.getPhoneNumber());
@@ -71,7 +75,7 @@ public class CustomerService {
             customer.setPassword(passwordEncoder.encode(dto.getPassword()));
         }
         customer.setUpdatedAt(LocalDateTime.now());
-        
+
         Customer updatedCustomer = repository.save(customer);
         return updatedCustomer.toDto();
     }
