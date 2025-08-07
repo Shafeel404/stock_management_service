@@ -50,17 +50,6 @@ public class User extends AbstractEntity {
     @Column(name = "password")
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(
-            name = "counter_id",
-            referencedColumnName = "id",
-            insertable = false,
-            updatable = false)
-    private Counter counter;
-
-    @Column(name = "counter_id")
-    private UUID counterId;
-
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -75,7 +64,6 @@ public class User extends AbstractEntity {
         dto.setPhoneNumber(phoneNumber);
         dto.setFullName(fullName);
         dto.setRole(ValidationUtils.isValid(role) ? role.toDTO() : null);
-        dto.setCounter(ValidationUtils.isValid(counter) ? counter.toDTO() : null);
         return dto;
     }
 

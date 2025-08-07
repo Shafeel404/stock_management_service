@@ -74,6 +74,11 @@
             <artifactId>hibernate-jpamodelgen</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.1.Final</version>
+        </dependency>
     </dependencies>
     <repositories>
         <repository>
@@ -112,18 +117,46 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.2.5</version> <!-- or the version you are using -->
+                <version>3.4.4</version>
                 <executions>
                     <execution>
+                        <id>process-aot</id>
+                        <goals>
+                            <goal>process-aot</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>repackage</id>
                         <goals>
                             <goal>repackage</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <mainClass>in.trois.stockmanagement.StockManagementApplication</mainClass>
+                </configuration>
             </plugin>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>0.10.3</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile-no-fork</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>in.trois.stockmanagement.StockManagementApplication</mainClass>
+                    <imageName>stock-management-service</imageName>
+                    <buildArgs>
+                        <buildArg>--no-fallback</buildArg>
+                        <buildArg>-H:+ReportExceptionStackTraces</buildArg>
+                    </buildArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>

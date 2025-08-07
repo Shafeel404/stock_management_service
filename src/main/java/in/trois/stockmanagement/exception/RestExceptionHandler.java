@@ -51,9 +51,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
-            @NotNull WebRequest request) {
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
         log.error("RestExceptionHandler.handleMethodArgumentNotValid", ex);
         Set<String> errors = new HashSet<String>();
         for (FieldError error : ex.getBindingResult().getFieldErrors()) {
@@ -71,9 +71,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleTypeMismatch(
             TypeMismatchException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
-            @NotNull WebRequest request) {
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
         log.error("RestExceptionHandler.handleTypeMismatch", ex);
         String error =
                 ex.getValue()
@@ -89,9 +89,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleMissingServletRequestPart(
             MissingServletRequestPartException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
-            @NotNull WebRequest request) {
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
         log.error("RestExceptionHandler.handleMissingServletRequestPart", ex);
         String error = ex.getRequestPartName() + " part is missing";
         ErrorResponse errorResponse =
@@ -102,9 +102,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleMissingServletRequestParameter(
             MissingServletRequestParameterException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
-            @NotNull WebRequest request) {
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
         log.error("RestExceptionHandler.handleMissingServletRequestParameter", ex);
         String error = ex.getParameterName() + " parameter is missing";
         ErrorResponse errorResponse =
@@ -115,9 +115,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleNoHandlerFoundException(
             NoHandlerFoundException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
-            @NotNull WebRequest request) {
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
         log.error("RestExceptionHandler.handleNoHandlerFoundException", ex);
         String error = "No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL();
         ErrorResponse errorResponse =
@@ -128,9 +128,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(
             HttpRequestMethodNotSupportedException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
-            @NotNull WebRequest request) {
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
         log.error("RestExceptionHandler.handleHttpRequestMethodNotSupported", ex);
         StringBuilder builder = new StringBuilder();
         builder.append(ex.getMethod());
@@ -147,8 +147,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleHttpMediaTypeNotSupported(
             HttpMediaTypeNotSupportedException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
+            HttpHeaders headers,
+            HttpStatusCode status,
             final WebRequest request) {
         log.error("RestExceptionHandler.handleHttpMediaTypeNotSupported", ex);
         StringBuilder builder = new StringBuilder();
@@ -224,10 +224,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(
-            @NotNull HttpMessageNotReadableException ex,
-            @NotNull HttpHeaders headers,
-            @NotNull HttpStatusCode status,
-            @NotNull WebRequest request) {
+            HttpMessageNotReadableException ex,
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
         log.error("RestExceptionHandler.handleHttpMessageNotReadable", ex);
         Set<String> errors = new HashSet<String>();
         String message = ex.getMessage();

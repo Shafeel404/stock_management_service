@@ -28,8 +28,6 @@ public class UserDto extends AbstractDto {
 
     private String fullName;
 
-    private CounterDto counter;
-
     @Override
     public <T extends AbstractEntity> T toEntity() {
         return null;
