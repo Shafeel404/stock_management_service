@@ -10,7 +10,6 @@ import org.springframework.http.HttpMethod;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import static ch.qos.logback.classic.util.StatusViaSLF4JLoggerFactory.addError;
 import static org.springframework.http.HttpMethod.POST;
 
 @Getter

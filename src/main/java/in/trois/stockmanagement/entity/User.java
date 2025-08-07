@@ -50,11 +50,6 @@ public class User extends AbstractEntity {
     @Column(name = "password")
     private String password;
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
     @SuppressWarnings("unchecked")
     public UserDto toDTO() {
         UserDto dto = new UserDto();
