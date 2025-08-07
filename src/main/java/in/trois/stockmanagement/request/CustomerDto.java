@@ -11,8 +11,6 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static ch.qos.logback.classic.util.StatusViaSLF4JLoggerFactory.addError;
-import static in.trois.stockmanagement.entity.Counter_.counterNumber;
-import static org.springframework.http.HttpMethod.PATCH;
 import static org.springframework.http.HttpMethod.POST;
 
 @Getter
@@ -33,14 +31,12 @@ public class CustomerDto {
     public boolean isValid(HttpMethod httpMethod) {
         if (httpMethod.equals(POST)) {
             if (!ValidationUtils.isValid(username)) {
-                addError("username", username);
+                return false;
             }
             if (!ValidationUtils.isValid(email)) {
-                addError("email", email);
+                return false;
             }
-            if (!ValidationUtils.isValid(phoneNumber)) {
-                addError("phoneNumber", phoneNumber);
-            }
+            return ValidationUtils.isValid(phoneNumber);
         }
         return true;
     }
